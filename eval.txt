@@ -1,0 +1,8 @@
+
+//The eval() function evaluates or executes an argument.
+//you can use this in dynamic. if you want a dynamic setup like. incremented value.
+var i = 1;
+var frame1image = "http://www.google.com"
+console.log(eval(["frame" + i + "image"][0]))
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
