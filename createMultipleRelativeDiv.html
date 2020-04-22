@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.js"></script>
+<style>
+#holder{
+width:500px;
+height:500px;
+position:absolute;
+}
+.line{
+height:auto;
+position:relative;
+width:100%;
+color:#000000;
+opacity:0;
+top:11px;
+}
+</style>
+</head>
+<body>
+    
+<div id="holder"> 
+
+</div>
+
+</body>
+<script>
+var holder
+var arr = ["frame1headline1","frame1headline2","frame1headline3","frame1headline4"];
+
+var defaultValues = { 
+    frame1headline1:"Lorem Ipsum",
+    frame1headline2:"Lorem Ipsum",
+    frame1headline3:"Lorem Ipsum",
+    frame1headline4:"Lorem Ipsum",
+ }
+
+arr.forEach(function (value, index) {
+    var para = document.createElement("div");       
+    para.className = "line" 
+    para.setAttribute("id", value);
+    document.getElementById("holder").appendChild(para); 
+    
+});
+
+
+
+TweenMax.to("#frame1headline1", 0.6, {css:{left:"0px", top:"0px", opacity:1,ease:Power4.easeOut}, delay:0.3});
+TweenMax.to("#frame1headline2", 0.6, {css:{left:"0px", top:"0px", opacity:1,ease:Power4.easeOut}, delay:1.3})
+TweenMax.to("#frame1headline3", 0.6, {css:{left:"0px", top:"0px", opacity:1,ease:Power4.easeOut}, delay:2.3})
+TweenMax.to("#frame1headline4", 0.6, {css:{left:"0px", top:"0px", opacity:1,ease:Power4.easeOut}, delay:3.3})
+
+
+document.getElementById("frame1headline1").innerHTML = defaultValues.frame1headline1
+document.getElementById("frame1headline2").innerHTML = defaultValues.frame1headline2
+document.getElementById("frame1headline3").innerHTML = defaultValues.frame1headline3
+document.getElementById("frame1headline4").innerHTML = defaultValues.frame1headline4
+
+
+
+</script>
+
+</html>

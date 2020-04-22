@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.js"></script>
+</head>
+<body>
+<div id="holder"> 
+    <div id="centerthis">
+    </div>
+</div>
+<div id="holder2">
+<div>
+</body>
+<script>
+var holder
+
+//not supported in IE
+const $id = id => document.getElementById(id);
+
+
+var defaultValues = { 
+    frame1headline1:"<span style='font-size:40px; color:red;'>Lorem Ipsum</span>",
+    frame1headline2:"<span style='font-size:40px; color:green;'>Lorem Ipsum</span>",
+    frame1headline3:"<span style='font-size:40px; color:grey;'>Lorem Ipsum</span>",
+    frame1headline4:"<span style='font-size:40px; color:white;'>Lorem Ipsum</span>",
+ }
+ 
+parent("centerthis")
+grandparent("holder", "500px", "500px", "greenyellow")
+
+createDiv("frame1headline1","centerthis");
+createDiv("frame1headline2","centerthis");
+createDiv("frame1headline3","centerthis");
+createDiv("frame1headline4","centerthis");
+createDiv("frame1headline5","centerthis");
+
+
+function createDiv(value, id){
+    var x = document.createElement("div");       
+    x.className = "line" 
+    x.style.height = "auto"
+    x.style.position = "relative"
+    x.style.width = "100%"
+    x.style.color = "#000000"
+    x.style.opacity = "0"
+    x.style.top = "11px"
+    x.style.textAlign = "center";
+    x.setAttribute("id", value);
+    $id(id).appendChild(x); 
+}
+
+function grandparent(id, height, width, background){
+    $id(id).style.position = "absolute";
+    $id(id).style.height = height
+    $id(id).style.width = width
+    $id(id).style.background = background;
+}
+
+function parent(id){
+    $id(id).style.position = "relative";
+    $id(id).style.top= "49%";
+    $id(id).style.transform = "translateY(-50%)";
+    $id(id).style.height = "auto"
+    $id(id).style.position = "relative"
+}
+
+
+TweenMax.to("#frame1headline1", 0.6, {css:{top:"0px", opacity:1,ease:Power4.easeOut}, delay:0.3});
+TweenMax.to("#frame1headline2", 0.6, {css:{top:"0px", opacity:1,ease:Power4.easeOut}, delay:1.1})
+TweenMax.to("#frame1headline3", 0.6, {css:{top:"0px", opacity:1,ease:Power4.easeOut}, delay:2.2})
+TweenMax.to("#frame1headline4", 0.6, {css:{top:"0px", opacity:1,ease:Power4.easeOut}, delay:3.0})
+
+TweenMax.to(["#frame1headline1","#frame1headline2","#frame1headline3","#frame1headline4"], 0.1, {css:{top:"0px", opacity:0,ease:Power4.easeOut}, delay:5.0})
+TweenMax.to(["#frame1headline1","#frame1headline2","#frame1headline3","#frame1headline4"], 0, {css:{top:"11px", opacity:0,ease:Power4.easeOut}, delay:5.1})
+
+TweenMax.to("#frame1headline1", 0.6, {css:{top:"0px", opacity:1,ease:Power4.easeOut}, delay:5.1});
+TweenMax.to("#frame1headline2", 0.6, {css:{top:"0px", opacity:1,ease:Power4.easeOut}, delay:6.7})
+TweenMax.to("#frame1headline3", 0.6, {css:{top:"0px", opacity:1,ease:Power4.easeOut}, delay:7.5})
+TweenMax.to("#frame1headline4", 0.6, {css:{top:"0px", opacity:1,ease:Power4.easeOut}, delay:8.3})
+
+
+document.getElementById("frame1headline1").innerHTML = defaultValues.frame1headline1
+document.getElementById("frame1headline2").innerHTML = defaultValues.frame1headline2
+document.getElementById("frame1headline3").innerHTML = defaultValues.frame1headline3
+document.getElementById("frame1headline4").innerHTML = defaultValues.frame1headline4
+
+
+
+
+/*
+var arr = ["frame1headline1","frame1headline2","frame1headline3","frame1headline4"];
+arr.forEach(function (value, index) {
+    var para = document.createElement("div");       
+    para.className = "line" 
+    para.style.height = "auto"
+    para.style.position = "relative"
+    para.style.width = "100%"
+    para.style.color = "#000000"
+    para.style.opacity = "0"
+    para.style.top = "11px"
+    para.style.left = "15px";
+    para.setAttribute("id", value);
+    document.getElementById("centerthis").appendChild(para); 
+    
+});
+*/
+
+
+
+
+
+</script>
+
+</html>
